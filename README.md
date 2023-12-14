@@ -32,6 +32,7 @@ labels:
 ```
 
 Copy past parser and scenario into your crowdsec folder configuration.
+parser/s01-parse folder and scenarios folder
 
 If you want testing parser 
 
