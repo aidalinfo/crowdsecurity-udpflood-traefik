@@ -20,6 +20,17 @@ Traefik configuration :
       - /var/log/crowdsec/:/var/log/crowdsec/
 ```
 
+
+Acquis.yaml crowdsec for traefik log :
+
+```yaml
+---
+filenames:
+  - /var/log/crowdsec/traefik-tcpudp.log
+labels:
+  type: udptraefik
+```
+
 Copy past parser and scenario into your crowdsec folder configuration.
 
 If you want testing parser 
@@ -39,15 +50,6 @@ cscli explain --file /var/log/crowdsec/test.log --type udptraefik -v
 Result :
 ![Alt text](images/image.png)
 
-Acquis.yaml crowdsec for traefik log :
-
-```yaml
----
-filenames:
-  - /var/log/crowdsec/traefik-tcpudp.log
-labels:
-  type: udptraefik
-```
 
 That's good, let's try it!
 
