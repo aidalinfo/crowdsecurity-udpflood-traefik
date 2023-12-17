@@ -1,10 +1,10 @@
 type: leaky
-name: sc-udp-flood
+name: traefik-udptcp-flood
 description: "Detect UDP flood"
-filter: "evt.Meta.log_type == 'traefik_udp'"
+filter: "evt.Meta.log_type == 'traefik_tcpudp'"
 groupby: "evt.Meta.source_ip"
 capacity: 1000
-leakspeed: "10s"
+leakspeed: "20s"
 blackhole: 5m
 labels:
   remediation: true
