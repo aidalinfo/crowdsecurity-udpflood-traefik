@@ -1,16 +1,21 @@
 onsuccess: next_stage
 debug: true
-name: Aidalinfo/udp-flood-traefik
-description: "Parse udp traefik logs"
-filter: "evt.Parsed.program == 'udptraefik'"
+name: Aidalinfo/tcpudp-flood-traefik
+description: "Parse TCP/UDP traefik logs"
+filter: "evt.Parsed.program == 'tcpudp-traefik'"
 nodes:
+  - grok:
+      pattern: 'time="%{TIMESTAMP_ISO8601:time}" level=%{LOGLEVEL:level} msg="Handling TCP connection from %{IP:source_ip}:%{NUMBER:source_port} to %{IP:destination_ip}:%{NUMBER:destination_port}"'
+      apply_on: message
+      statics:
+        - meta: log_type
+          value: traefik_tcpudp
   - grok:
       pattern: 'time="%{TIMESTAMP_ISO8601:time}" level=%{LOGLEVEL:level} msg="Handling UDP stream from %{IP:source_ip}:%{NUMBER:source_port} to %{IP:destination_ip}:%{NUMBER:destination_port}"'
       apply_on: message
       statics:
         - meta: log_type
-          value: traefik_udp
-
+          value: traefik_tcpudp
 statics:
     - meta: service
       value: traefik
