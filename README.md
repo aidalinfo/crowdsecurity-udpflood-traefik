@@ -26,9 +26,9 @@ Acquis.yaml crowdsec for traefik log :
 ```yaml
 ---
 filenames:
-  - /var/log/crowdsec/traefik-tcpudp.log
+- /var/log/crowdsec/traefik-tcpudp.log
 labels:
-  type: udptraefik
+  type: tcpudp-traefik
 ```
 
 Copy past parser and scenario into your crowdsec folder configuration.
@@ -45,7 +45,7 @@ line: time="2023-12-13T21:11:48Z" level=debug msg="Handling UDP stream from 1.2.
 
 And you can try with this command :
 ```bash
-cscli explain --file /var/log/crowdsec/test.log --type udptraefik -v
+cscli explain --file /var/log/crowdsec/test.log --type tcpudp-traefik -v
 ```
 
 Result :
