@@ -1,5 +1,5 @@
 type: leaky
-name: traefik-udptcp-flood
+name: aidalinfo/traefik-udptcp-flood
 description: "Detect TCP/UDP flood"
 filter: "evt.Meta.log_type == 'traefik_tcpudp'"
 groupby: "evt.Meta.source_ip"

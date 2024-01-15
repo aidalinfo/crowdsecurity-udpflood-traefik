@@ -4,7 +4,7 @@ onsuccess: next_stage
 debug: false
 ## Nom de la tâche
 ## EN: Task name
-name: Aidalinfo/tcpudp-flood-traefik
+name: aidalinfo/tcpudp-flood-traefik
 ## Description de la tâche
 ## EN: Task description
 description: "Parse TCP/UDP traefik logs"
